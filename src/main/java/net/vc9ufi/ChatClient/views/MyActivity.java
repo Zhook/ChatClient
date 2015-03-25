@@ -73,6 +73,31 @@ public class MyActivity extends Activity {
         });
 
         mRestThread.start();
+        if(preferences.getBoolean(getString(R.string.preference_key_first_launch), true)){
+            showNameInputDialog();
+            SharedPreferences.Editor editPref = preferences.edit();
+            editPref.putBoolean(getString(R.string.preference_key_first_launch), false);
+            editPref.apply();
+        }
+    }
+
+
+    private void showNameInputDialog() {
+        String name = preferences.getString(getString(R.string.preference_key_name), "Player1");
+        EditTextDialog nameDialog = new EditTextDialog(this, "Name", name) {
+            @Override
+            protected boolean onPositiveClick(String name) {
+                if (name.length() < 3) {
+                    this.setMsg(getString(R.string.too_short_msg));
+                    return false;
+                }
+                SharedPreferences.Editor editPref = preferences.edit();
+                editPref.putString(getString(R.string.preference_key_name), name);
+                editPref.apply();
+                return true;
+            }
+        };
+        nameDialog.show();
     }
 
 
@@ -100,21 +125,7 @@ public class MyActivity extends Activity {
                 addressDialog.show();
                 return true;
             case (R.id.item_menu_name):
-                String name = preferences.getString(getString(R.string.preference_key_name), "name");
-                EditTextDialog nameDialog = new EditTextDialog(this, "Name", name) {
-                    @Override
-                    protected boolean onPositiveClick(String name) {
-                        if (name.length() < 3) {
-                            this.setMsg(getString(R.string.too_short_msg));
-                            return false;
-                        }
-                        SharedPreferences.Editor editPref = preferences.edit();
-                        editPref.putString(getString(R.string.preference_key_name), name);
-                        editPref.apply();
-                        return true;
-                    }
-                };
-                nameDialog.show();
+                showNameInputDialog();
                 return true;
             case (R.id.item_menu_exit):
                 mRestThread.addRequest(RestController.REQUEST.LOGOUT, "");
@@ -166,6 +177,7 @@ public class MyActivity extends Activity {
             });
         }
     }
+
 
 
     private SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener = new SharedPreferences.OnSharedPreferenceChangeListener() {

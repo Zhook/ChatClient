@@ -2,4 +2,5 @@
 <resources>
     <string name="preference_key_name" translatable="false">preference_key_name</string>
     <string name="preference_key_address" translatable="false">preference_key_address</string>
+    <string name="preference_key_first_launch" translatable="false">preference_key_first_launch</string>
 </resources>
