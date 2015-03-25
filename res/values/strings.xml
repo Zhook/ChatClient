@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ChatClient</string>
+
+    <string name="ok" translatable="false">OK</string>
+    <string name="cancel">Cancel</string>
+
+    <string name="button_send">Send</string>
+
+    <string name="item_menu_server_url">Server url</string>
+    <string name="item_menu_name">Name</string>
+    <string name="item_menu_exit">Exit</string>
+
+    <string name="messages_user_in"> in</string>
+    <string name="messages_user_out"> out</string>
+    <string name="too_short_msg">must contain 3 or more characters</string>
+</resources>

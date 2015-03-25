@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
+
+    <EditTextPreference
+            android:key="@string/preference_key_name"
+            android:name="Login"
+            android:inputType="text"
+            android:summary="Your name"
+            android:defaultValue="nick"
+            android:title="Name"/>
+
+    <EditTextPreference
+            android:key="@string/preference_key_address"
+            android:name="Address"
+            android:inputType="textWebEmailAddress"
+            android:summary="This allows you to enter a address"
+            android:defaultValue="192.168.1.51"
+            android:title="Address"/>
+
+</PreferenceScreen>

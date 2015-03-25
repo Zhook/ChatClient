@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ЧатКлиент</string>
+    <string name="cancel">Отмена</string>
+    <string name="item_menu_server_url">Адрес Сервера</string>
+    <string name="item_menu_name">Имя</string>
+    <string name="button_send">Послать</string>
+    <string name="item_menu_exit">Выход</string>
+    <string name="messages_user_in"> вошел</string>
+    <string name="messages_user_out"> вышел</string>
+    <string name="too_short_msg">Должно содержать 3 или больше сиволов</string>
+</resources>
